@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ url_name }} Channels</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 1rem;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        ul {
+            padding-left: 0;
+            list-style-type: none;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        li {
+            display: flex;
+            align-items: center;
+            background: #fff;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+            padding: 10px;
+        }
+
+        img {
+            margin-right: 15px;
+            max-width: 50px;
+            height: auto;
+        }
+
+        a {
+            text-decoration: none;
+            color: #007BFF;
+            font-size: 1.2rem;
+            flex-grow: 1;
+            text-align: left;
+        }
+
+        a:hover {
+            color: #0056b3;
+        }
+
+        p {
+            text-align: center;
+        }
+
+        @media (max-width: 600px) {
+            img {
+                margin-right: 10px;
+            }
+
+            a {
+                font-size: 1rem;
+            }
+
+            li {
+                margin: 5px 0;
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>{{ url_name }} Channels</h1>
+    <ul>
+        {% for stream in streams %}
+            <li>
+                <img src="{{ stream.logo }}" alt="{{ stream.name }}" width="50">
+                <a href="{{ stream.url }}" target="_blank">{{ stream.name }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <p><a href="{{ url_for('index') }}">Back to Playlists</a></p>
+</body>
+</html>
