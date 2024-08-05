@@ -6,7 +6,7 @@ import re
 app = Flask(__name__)
 
 STREAM_FILE_URLS = {
-    'CN (ipv6)': 'https://raw.githubusercontent.com/fanmingming/live/main/tv/m3u/ipv6.m3u',
+    'CN (ipv6)': 'https://live.fanmingming.com/tv/m3u/ipv6.m3u',
     'JP': 'https://raw.githubusercontent.com/luongz/iptv-jp/main/jp.m3u',
     'Global': 'https://raw.githubusercontent.com/YueChan/Live/main/Global.m3u',
     'Radio': 'https://raw.githubusercontent.com/fanmingming/live/main/radio/m3u/fm.m3u'
@@ -49,6 +49,12 @@ def playlists(url_name):
         return render_template('playlist.html', streams=streams, url_name=url_name)
     else:
         return "URL not found", 404
+    
+@app.route('/player')
+def player():
+    stream_url = request.args.get('stream_url')
+    return render_template('player.html', stream_url=stream_url)
+
 
 if __name__ == '__main__':
     app.run(debug=False, host='0.0.0.0', port=5000)

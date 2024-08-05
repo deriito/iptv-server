@@ -78,7 +78,7 @@
         {% for stream in streams %}
             <li>
                 <img src="{{ stream.logo }}" alt="{{ stream.name }}" width="50">
-                <a href="{{ stream.url }}" target="_blank">{{ stream.name }}</a>
+                <a href="{{ url_for('player', stream_url=stream.url) }}">{{ stream.name }}</a>
             </li>
         {% endfor %}
     </ul>
