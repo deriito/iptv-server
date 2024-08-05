@@ -10,3 +10,4 @@ A simple IPTV server that can be deployed on your local server
 6. `deactivate`
 7. `chmod +x *.sh`
 8. `./run-server.sh` or `./run-quiet-mode.sh`
+9. Access `${your_host_ip]:5000`
